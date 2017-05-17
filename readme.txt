@@ -1,5 +1,5 @@
 === Eliane ===
-Contributors: the WordPress team
+Contributors: someone around there
 Requires at least: WordPress 4.1
 Tested up to: WordPress 4.8-trunk
 Version: 1.0
