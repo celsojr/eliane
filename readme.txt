@@ -2,7 +2,7 @@
 Contributors: Celso Jr
 Requires at least: WordPress 4.1
 Tested up to: WordPress 4.8-trunk
-Version: 1.2
+Version: 1.3
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -11,6 +11,9 @@ Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, c
 A WordPress theme based in the TwentyFifteen
 
 == Changelog ==
+
+= 1.3 =
+* Custom social sharing buttons added
 
 = 1.2 =
 * Side bar redesigned

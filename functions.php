@@ -405,3 +405,42 @@ require get_template_directory() . '/inc/template-tags.php';
  * @since Twenty Fifteen 1.0
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+* Custom social sharing buttons
+*
+* @since Eliane 1.3
+*/
+function social_sharing_buttons($content) {
+	global $post;
+	if(is_singular() || is_home()){
+	
+		$post_url = urlencode(get_permalink());
+		$post_title = str_replace( ' ', '%20', get_the_title());
+		$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+ 
+		$twitter_url = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=celsojrfull';
+		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
+		$google_url = 'https://plus.google.com/share?url='.$post_url;
+		$whatsapp_url = 'whatsapp://send?text='.$post_title . ' ' . $post_url;
+		$linkedin_url = 'https://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&amp;title='.$post_title;
+		$email_url = 'mailto:?subject='.$post_title.'&amp;body='.$post_url.'';
+		// $pinterest_url = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;media='.$post_thumbnail[0].'&amp;description='.$post_title;
+ 
+		$content .= '<!-- Social sharing -->';
+		$content .= '<div class="postshare">';
+		$content .= '<a class="genericon genericon-twitter share-button" href="'. $twitter_url .'" target="_blank" title="Share on Twitter"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button" href="'.$linkedin_url.'" target="_blank"></a>';
+		$content .= '<a class="genericon genericon-googleplus-alt share-button" href="'.$google_url.'" target="_blank"></a>';
+		$content .= '<a class="genericon genericon-facebook-alt share-button" href="'.$facebook_url.'" target="_blank"></a>';
+		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="'.$whatsapp_url.'" target="_blank"></a>';
+		$content .= '<a class="genericon genericon-mail share-button" href="'.$email_url.'" target="_blank"></a>';
+		// $content .= '<a class="genericon genericon-pinterest" href="'.$pinterest_url.'" data-pin-custom="true" target="_blank">Pin It</a>';
+		$content .= '</div>';
+		
+		return $content;
+	} else {
+		return $content;
+	}
+};
+add_filter( 'the_content', 'social_sharing_buttons');
