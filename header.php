@@ -15,6 +15,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto">
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
@@ -40,6 +41,19 @@
 					$description = get_bloginfo( 'description', 'display' );
 					if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description"><?php echo $description; ?></p>
+						<?php if ( has_nav_menu( 'social' ) ) : ?>
+							<nav id="social-navigation" class="social-navigation" role="navigation">
+								<?php
+									// Social links navigation menu.
+									wp_nav_menu( array(
+										'theme_location' => 'social',
+										'depth'          => 1,
+										'link_before'    => '<span class="screen-reader-text">',
+										'link_after'     => '</span>',
+									) );
+								?>
+							</nav><!-- .social-navigation -->
+						<?php endif; ?>
 					<?php endif;
 				?>
 				<button class="secondary-toggle"><?php _e( 'Menu and widgets', 'twentyfifteen' ); ?></button>
