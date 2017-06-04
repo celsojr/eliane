@@ -277,6 +277,10 @@ function twentyfifteen_scripts() {
 		wp_enqueue_script( 'twentyfifteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20141010' );
 	}
 
+	if ( is_singular() ) {
+		wp_enqueue_script( 'eliane-sharing-scrips', get_template_directory_uri() . '/js/functions-sharing.js', array( 'jquery' ), '1.0', true );
+	}
+
 	wp_enqueue_script( 'twentyfifteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
 	wp_localize_script( 'twentyfifteen-script', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'twentyfifteen' ) . '</span>',
@@ -411,15 +415,16 @@ require get_template_directory() . '/inc/customizer.php';
 *
 * @since Eliane 1.3
 */
-function social_sharing_buttons($content) {
+function social_sharing_buttons( $content ) {
 	global $post;
-	if(is_singular() || is_home()){
+
+	if ( is_single() ) {
 	
-		$post_url = urlencode(get_permalink());
-		$post_title = str_replace( ' ', '%20', get_the_title());
-		$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+		$post_url = urlencode( get_permalink() );
+		$post_title = str_replace( ' ', '%20', get_the_title() );
+		//$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
  
-		$twitter_url = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=celsojrfull';
+		$twitter_url = 'http://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=celsojrfull';
 		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
 		$google_url = 'https://plus.google.com/share?url='.$post_url;
 		$whatsapp_url = 'whatsapp://send?text='.$post_title . ' ' . $post_url;
@@ -429,12 +434,12 @@ function social_sharing_buttons($content) {
  
 		$content .= '<!-- Social sharing -->';
 		$content .= '<div class="postshare">';
-		$content .= '<a class="genericon genericon-twitter share-button" href="'. $twitter_url .'" target="_blank" title="Share on Twitter"></a>';
-		$content .= '<a class="genericon genericon-linkedin share-button" href="'.$linkedin_url.'" target="_blank"></a>';
-		$content .= '<a class="genericon genericon-googleplus-alt share-button" href="'.$google_url.'" target="_blank"></a>';
-		$content .= '<a class="genericon genericon-facebook-alt share-button" href="'.$facebook_url.'" target="_blank"></a>';
-		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="'.$whatsapp_url.'" target="_blank"></a>';
-		$content .= '<a class="genericon genericon-mail share-button" href="'.$email_url.'" target="_blank"></a>';
+		$content .= '<a class="genericon genericon-twitter share-button" href="'.$twitter_url.'" title="Share on Twitter"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button" href="'.$linkedin_url.'" title="Share on Linkedin"></a>';
+		$content .= '<a class="genericon genericon-googleplus-alt share-button" href="'.$google_url.'" title="Share on Google Plus"></a>';
+		$content .= '<a class="genericon genericon-facebook-alt share-button" href="'.$facebook_url.'" title="Share on Facebook"></a>';
+		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="'.$whatsapp_url.'"></a>';
+		$content .= '<a class="genericon genericon-mail share-button" href="'.$email_url.'" title="Send by E-mail"></a>';
 		// $content .= '<a class="genericon genericon-pinterest" href="'.$pinterest_url.'" data-pin-custom="true" target="_blank">Pin It</a>';
 		$content .= '</div>';
 		
@@ -443,4 +448,60 @@ function social_sharing_buttons($content) {
 		return $content;
 	}
 };
-add_filter( 'the_content', 'social_sharing_buttons');
+add_filter( 'the_content', 'social_sharing_buttons' );
+
+/**
+* SEO meta tags
+*
+* @since Eliane 1.3
+*/
+
+function add_meta_tags() {
+	global $post;
+	global $wp_version;
+
+	if ( is_single() ) {
+		$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
+		$description = get_the_excerpt();
+		$site_name = get_bloginfo();
+		$keywords = array();
+
+		// Category list
+		$categories = get_the_category( $post->ID );
+		foreach( (array) $categories as $cat) {
+			$keywords[] = $cat->cat_name;
+		}
+
+		// Tag list
+		$postTags = get_the_tags();
+		foreach( (array) $postTags as $tag ) {
+			$keywords[] = $tag->name;
+		}
+	?>
+
+		<!-- [Default Meta Tags] -->
+		<meta name="description" content="<?php echo $description; ?>">
+		<meta name="keywords" content="<?php echo implode( $keywords, "," ); ?>"/>
+		<meta name="author" content="<?php echo $site_name; ?>"/>
+		<meta name="generator" content="<?php echo "WordPress " . $wp_version; ?>" />
+
+		<!-- [Open Graph] -->
+		<meta property="og:title" content="<?php echo the_title(); ?>"/>
+		<meta property="og:description" content="<?php echo $description; ?>"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+		<meta property="og:site_name" content="<?php echo $site_name; ?>"/>
+		<meta property="og:image" content="<?php echo $img_src[0]; ?>"/>
+
+		<!-- [Twitter Card] -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@celsojrfull">
+		<meta name="twitter:creator" content="@celsojrfull">
+		<meta name="twitter:title" content="<?php echo the_title(); ?>">
+		<meta name="twitter:description" content="<?php echo $description; ?>">
+		<meta name="twitter:image" content="<?php echo $img_src[0]; ?>">
+		
+	<?php	
+	}
+};
+add_action( 'wp_head', 'add_meta_tags', 5 );

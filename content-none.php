@@ -33,8 +33,8 @@
 
 		<?php endif; ?>
 
-		<!-- Sitemap -->
 		<h1>Sitemap</h1>
+
         <h4>Feeds</h4>  
             <ul>  
                 <li><a title="Full content" href="feed:<?php bloginfo('rss2_url'); ?>">Main RSS</a></li>  
@@ -55,7 +55,6 @@
 						echo '<li><a href="' . get_tag_link ($tag->term_id) . '" rel="tag">' . $tag->name . ' (' . $tag->count . ') </a></li>';
 					} ?>
 			</ul>
-
 		<h4>All Blog Posts</h4>  
             <ul><?php $archive_query = new WP_Query('showposts=1000&cat=-8');  
                     while ($archive_query->have_posts()) : $archive_query->the_post(); ?>  
