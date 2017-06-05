@@ -461,7 +461,7 @@ function add_meta_tags() {
 	global $wp_version;
 
 	if ( is_single() ) {
-		$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
+		$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 		$description = get_the_excerpt();
 		$site_name = get_bloginfo();
 		$keywords = array();
