@@ -11,7 +11,7 @@ Theme URI: https://wordpress.org/themes/eliane/
 Author: someone around there
 Author URI: https://celsojr.com/
 Description: Another theme
-Version: 1.4.1
+Version: 1.5
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -173,13 +173,8 @@ a img {
 .comment-reply-title small a:before,
 .comment-navigation .nav-next a:after,
 .comment-navigation .nav-previous a:before,
-.posted-on:before,
 .byline:before,
-.cat-links:before,
-.tags-links:before,
-.comments-link:before,
 .entry-format:before,
-.edit-link:before,
 .full-size-link:before,
 .pagination .prev:before,
 .pagination .next:before,
@@ -209,6 +204,34 @@ a img {
 /**
  * 3.0 Typography
  */
+
+ /* open-sans-300 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/open-sans-v13-latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+       url('fonts/open-sans-v13-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/open-sans-v13-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/open-sans-v13-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('fonts/open-sans-v13-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/open-sans-v13-latin-300.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+ /* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/roboto-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('fonts/roboto-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/roboto-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/roboto-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/roboto-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/roboto-v16-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
 
 body,
 button,
@@ -1622,6 +1645,7 @@ img.aligncenter {
 	display: block;
 	margin-bottom: 2.4em;
 }
+
 .post-thumbnail img {
 	display: block;
 	margin: 0 auto;
@@ -1640,8 +1664,19 @@ a.post-thumbnail:focus {
 	font-size: 26px;
 	font-size: 2.6rem;
 	line-height: 1.1538;
-	margin-bottom: 0.9231em;
 	text-align: center;
+}
+
+.entry-meta, .entry-modified-date {
+	font-size: 12px;
+	font-size: 1.167rem;
+	color: #ddd;
+	text-align: center;
+	margin-bottom: 2.9474em;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+    font-style: normal;
+	text-transform: uppercase;
 }
 
 .entry-content,
@@ -1881,31 +1916,6 @@ a.post-thumbnail:focus {
 	top: 1px;
 }
 
-.entry-footer {
-	background-color: #f7f7f7;
-	color: #707070;
-	color: rgba(51, 51, 51, 0.7);
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1.5;
-	padding: 3.8461% 7.6923%;
-}
-
-.entry-footer a {
-	border-bottom: 1px solid transparent;
-	color: #707070;
-	color: rgba(51, 51, 51, 0.7);
-}
-
-.entry-footer a:hover {
-	border-bottom: 1px solid #333;
-}
-
-.entry-footer a:hover,
-.entry-footer a:focus {
-	color: #333;
-}
-
 .sticky-post {
 	background-color: #333;
 	color: #fff;
@@ -1925,26 +1935,11 @@ a.post-thumbnail:focus {
 	display: none;
 }
 
-.posted-on:before,
 .byline:before,
-.cat-links:before,
-.tags-links:before,
-.comments-link:before,
 .entry-format:before,
-.edit-link:before,
 .full-size-link:before {
 	margin-right: 2px;
 	position: relative;
-}
-
-.posted-on,
-.byline,
-.cat-links,
-.tags-links,
-.comments-link,
-.entry-format,
-.full-size-link {
-	margin-right: 1em;
 }
 
 .format-aside .entry-format:before {
@@ -1983,32 +1978,8 @@ a.post-thumbnail:focus {
 	content: "\f109";
 }
 
-.posted-on:before {
-	content: "\f307";
-}
-
-.byline:before {
-	content: "\f304";
-}
-
-.cat-links:before {
-	content: "\f301";
-}
-
-.tags-links:before {
-	content: "\f302";
-}
-
-.comments-link:before {
-	content: "\f300";
-}
-
 .full-size-link:before {
 	content: "\f402";
-}
-
-.edit-link:before {
-	content: "\f411";
 }
 
 .comments-link,
@@ -2149,7 +2120,6 @@ a.post-thumbnail:focus {
 	font-size: 18px;
 	font-size: 1.8rem;
 	line-height: 1.3333;
-	margin-bottom: 1.3333em;
 }
 
 .format-link .entry-title a:after {
@@ -2903,10 +2873,6 @@ p > video {
 		padding: 0 9.0909% 9.0909%;
 	}
 
-	.entry-footer {
-		padding: 4.5454% 9.0909%;
-	}
-
 	.page-header {
 		border-bottom: 0;
 		border-left: 7px solid #333;
@@ -3107,7 +3073,6 @@ p > video {
 	.comment-navigation,
 	.author-heading,
 	.author-bio,
-	.entry-footer,
 	.page-links a,
 	.page-links span,
 	.comment-metadata,
@@ -3363,7 +3328,6 @@ p > video {
 		font-size: 35px;
 		font-size: 3.5rem;
 		line-height: 1.2;
-		margin-bottom: 1.2em;
 	}
 
 	.entry-content h1,
@@ -3446,13 +3410,8 @@ p > video {
 		top: 3px;
 	}
 
-	.posted-on:before,
 	.byline:before,
-	.cat-links:before,
-	.tags-links:before,
-	.comments-link:before,
 	.entry-format:before,
-	.edit-link:before,
 	.full-size-link:before {
 		top: 3px;
 	}
@@ -3495,7 +3454,6 @@ p > video {
 		font-size: 20px;
 		font-size: 2rem;
 		line-height: 1.4;
-		margin-bottom: 1.4em;
 	}
 
 	.format-link .entry-title a:after {
@@ -3736,7 +3694,6 @@ p > video {
 	.image-navigation,
 	.author-heading,
 	.author-bio,
-	.entry-footer,
 	.page-links a,
 	.page-links span,
 	.comment-metadata,
@@ -3935,7 +3892,6 @@ p > video {
 		font-size: 39px;
 		font-size: 3.9rem;
 		line-height: 1.2308;
-		margin-bottom: 1.2308em;
 	}
 
 	.entry-content h1,
@@ -4013,13 +3969,8 @@ p > video {
 		top: 0;
 	}
 
-	.posted-on:before,
 	.byline:before,
-	.cat-links:before,
-	.tags-links:before,
-	.comments-link:before,
 	.entry-format:before,
-	.edit-link:before,
 	.full-size-link:before {
 		top: 4px;
 	}
@@ -4062,7 +4013,6 @@ p > video {
 		font-size: 22px;
 		font-size: 2.2rem;
 		line-height: 1.4545;
-		margin-bottom: 1.4545em;
 	}
 
 	.format-link .entry-title a:after {
@@ -4356,7 +4306,6 @@ p > video {
 	.image-navigation,
 	.author-heading,
 	.author-bio,
-	.entry-footer,
 	.page-links a,
 	.page-links span,
 	.comment-metadata,
@@ -4602,7 +4551,6 @@ p > video {
 		font-size: 31px;
 		font-size: 3.1rem;
 		line-height: 1.1613;
-		margin-bottom: 1.1613em;
 	}
 
 	.entry-content,
@@ -4691,17 +4639,8 @@ p > video {
 		top: 1px;
 	}
 
-	.entry-footer {
-		padding: 5% 10%;
-	}
-
-	.posted-on:before,
 	.byline:before,
-	.cat-links:before,
-	.tags-links:before,
-	.comments-link:before,
 	.entry-format:before,
-	.edit-link:before,
 	.full-size-link:before {
 		top: 0;
 	}
@@ -4752,7 +4691,6 @@ p > video {
 		font-size: 18px;
 		font-size: 1.8rem;
 		line-height: 1.3333;
-		margin-bottom: 1.3333em;
 	}
 
 	.format-link .entry-title a:after {
@@ -5014,7 +4952,6 @@ p > video {
 	.image-navigation,
 	.author-heading,
 	.author-bio,
-	.entry-footer,
 	.page-links a,
 	.page-links span,
 	.comment-metadata,
@@ -5189,7 +5126,6 @@ p > video {
 		font-size: 35px;
 		font-size: 3.5rem;
 		line-height: 1.2;
-		margin-bottom: 1.2em;
 	}
 
 	.entry-content h1,
@@ -5267,13 +5203,8 @@ p > video {
 		top: 3px;
 	}
 
-	.posted-on:before,
 	.byline:before,
-	.cat-links:before,
-	.tags-links:before,
-	.comments-link:before,
 	.entry-format:before,
-	.edit-link:before,
 	.full-size-link:before {
 		top: 3px;
 	}
@@ -5316,7 +5247,6 @@ p > video {
 		font-size: 20px;
 		font-size: 2rem;
 		line-height: 1.4;
-		margin-bottom: 1.4em;
 	}
 
 	.format-link .entry-title a:after {
@@ -5555,7 +5485,6 @@ p > video {
 	.image-navigation,
 	.author-heading,
 	.author-bio,
-	.entry-footer,
 	.page-links a,
 	.page-links span,
 	.comment-metadata,
@@ -5742,7 +5671,6 @@ p > video {
 		font-size: 39px;
 		font-size: 3.9rem;
 		line-height: 1.2308;
-		margin-bottom: 1.2308em;
 	}
 
 	.entry-content h1,
@@ -5820,13 +5748,8 @@ p > video {
 		top: 0;
 	}
 
-	.posted-on:before,
 	.byline:before,
-	.cat-links:before,
-	.tags-links:before,
-	.comments-link:before,
-	.entry-format:before,
-	.edit-link:before,
+	/*.entry-format:before,*/
 	.full-size-link:before {
 		top: 4px;
 	}
@@ -5869,7 +5792,6 @@ p > video {
 		font-size: 22px;
 		font-size: 2.2rem;
 		line-height: 1.4545;
-		margin-bottom: 1.4545em;
 	}
 
 	.format-link .entry-title a:after {
@@ -6019,7 +5941,6 @@ p > video {
 	.site-header,
 	.site-footer,
 	.hentry,
-	.entry-footer,
 	.page-header,
 	.page-content,
 	.comments-area,
@@ -6037,8 +5958,6 @@ p > video {
 	.site-description,
 	.post-title,
 	.author-heading,
-	.entry-footer,
-	.entry-footer a,
 	.taxonomy-description,
 	.entry-caption,
 	.comment-author,
@@ -6106,8 +6025,7 @@ p > video {
 		color: #fff !important;
 	}
 
-	.entry-header,
-	.entry-footer {
+	.entry-header {
 		padding: 0;
 	}
 

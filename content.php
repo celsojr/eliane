@@ -26,6 +26,14 @@
 		?>
 	</header><!-- .entry-header -->
 
+	<h4 class="entry-meta">
+		<?php twentyfifteen_entry_meta(); ?>
+		<?php if ( is_single() ) {
+			edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link"> / ', '</span>' );
+		}
+		?>
+	</h4>
+
 	<div class="entry-content">
 		<?php
 			/* translators: %s: Name of current post */
@@ -43,18 +51,24 @@
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) );
 		?>
+
+		<?php if ( is_single() ) : ?>
+			<div class="entry-modified-date">
+				<?php echo "Last edited on " . get_the_modified_date( 'M, d, Y \a\\t H:i a' ); ?>
+			</div>
+		<?php endif; ?>
 	</div><!-- .entry-content -->
 
-	<?php
+	<!--<-?php
 		// Author bio.
 		if ( is_single() && get_the_author_meta( 'description' ) ) :
 			get_template_part( 'author-bio' );
 		endif;
-	?>
+	?>-->
 
-	<footer class="entry-footer">
-		<?php twentyfifteen_entry_meta(); ?>
-		<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
+	<!--<footer class="entry-footer">
+		<-?php twentyfifteen_entry_meta(); ?>
+		<-?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
+	</footer> .entry-footer -->
 
 </article><!-- #post-## -->
