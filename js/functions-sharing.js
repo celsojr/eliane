@@ -35,13 +35,12 @@
         strParam = 'width=' + intWidth + ',height=' + intHeight + ',top=' + top + ',left=' + left + ',resizable=' + strResize,            
         objWindow = window.open(this.attr('href'), strTitle, strParam).focus();
   }
-  
-  /* ================================================== */
-  
-  $(function ($) {
-      $(".share-button:not('.genericon-mail,.genericon-phone')").on("click", function(e) {
-          $(this).customerPopup(e);
-      });
-  });
-    
+}(jQuery));
+
+/* ================================================== */
+
+;(function ($) {
+    $(".share-button:not('.genericon-mail,.genericon-phone')").on("click", function(e) {
+        $(this).customerPopup(e);
+    });
 }(jQuery));

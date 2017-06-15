@@ -24,6 +24,8 @@ get_header(); ?>
                     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                 </header><!-- .entry-header -->
 
+                <h4 class="entry-meta"></h4>
+
                 <div class="entry-content">
                     <h4>Feeds</h4>  
                         <ul>  

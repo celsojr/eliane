@@ -423,24 +423,29 @@ function social_sharing_buttons( $content ) {
 		$post_url = urlencode( get_permalink() );
 		$post_title = str_replace( ' ', '%20', get_the_title() );
 		//$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+		$summary = "";
+		
+		if ( has_excerpt( $post->ID ) ) {
+			$summary = '&amp;summary=' . urlencode( get_the_excerpt() );
+		}
  
-		$twitter_url = 'http://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=celsojrfull';
-		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
-		$google_url = 'https://plus.google.com/share?url='.$post_url;
-		$whatsapp_url = 'whatsapp://send?text='.$post_title . ' ' . $post_url;
-		$linkedin_url = 'https://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&amp;title='.$post_title;
-		$email_url = 'mailto:?subject='.$post_title.'&amp;body='.$post_url.'';
+		$twitter_url = 'https://twitter.com/intent/tweet?text=' . $post_title . '&amp;url=' . $post_url . '&amp;via=celsojrfull';
+		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
+		$google_url = 'https://plus.google.com/share?url=' . $post_url;
+		$whatsapp_url = 'whatsapp://send?text=' . $post_title . ' ' . $post_url;
+		$linkedin_url = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $post_url . '&amp;title=' . $post_title . $summary . '&amp;source=celsojr.com';
+		$email_url = 'mailto:?subject=' . $post_title . '&amp;body=' . $post_url . '';
 		// $pinterest_url = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;media='.$post_thumbnail[0].'&amp;description='.$post_title;
  
 		$content .= '<!-- Social sharing -->';
 		$content .= '<div class="postshare">';
-		$content .= '<a class="genericon genericon-twitter share-button" href="'.$twitter_url.'" title="Share on Twitter"></a>';
-		$content .= '<a class="genericon genericon-linkedin share-button" href="'.$linkedin_url.'" title="Share on Linkedin"></a>';
-		$content .= '<a class="genericon genericon-googleplus-alt share-button" href="'.$google_url.'" title="Share on Google Plus"></a>';
-		$content .= '<a class="genericon genericon-facebook-alt share-button" href="'.$facebook_url.'" title="Share on Facebook"></a>';
-		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="'.$whatsapp_url.'"></a>';
-		$content .= '<a class="genericon genericon-mail share-button" href="'.$email_url.'" title="Send by E-mail"></a>';
-		// $content .= '<a class="genericon genericon-pinterest" href="'.$pinterest_url.'" data-pin-custom="true" target="_blank">Pin It</a>';
+		$content .= '<a class="genericon genericon-twitter share-button" href="' . $twitter_url . '" title="Share on Twitter"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
+		$content .= '<a class="genericon genericon-googleplus-alt share-button" href="' . $google_url . '" title="Share on Google Plus"></a>';
+		$content .= '<a class="genericon genericon-facebook-alt share-button" href="' . $facebook_url . '" title="Share on Facebook"></a>';
+		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="' . $whatsapp_url . '"></a>';
+		$content .= '<a class="genericon genericon-mail share-button" href="' . $email_url . '" title="Send by E-mail"></a>';
+		// $content .= '<a class="genericon genericon-pinterest" href="' . $pinterest_url . '" data-pin-custom="true" target="_blank">Pin It</a>';
 		$content .= '</div>';
 		
 		return $content;
@@ -505,3 +510,4 @@ function add_meta_tags() {
 	}
 };
 add_action( 'wp_head', 'add_meta_tags', 5 );
+?>
