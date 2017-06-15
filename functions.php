@@ -460,7 +460,6 @@ add_filter( 'the_content', 'social_sharing_buttons' );
 *
 * @since Eliane 1.3
 */
-
 function add_meta_tags() {
 	global $post;
 	global $wp_version;
@@ -510,4 +509,27 @@ function add_meta_tags() {
 	}
 };
 add_action( 'wp_head', 'add_meta_tags', 5 );
-?>
+
+/**
+* Google Analytics Tracking Code
+* https://developers.google.com/analytics/devguides/collection/analyticsjs/
+*
+* @since Eliane 1.5.1
+*/
+function google_analytics_tracking_code() {
+
+	$propertyID = 'UA-101184526-1'; // GA Property ID
+
+	?>
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		ga('create', '<?php echo $propertyID; ?>', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+	<!-- End Google Analytics -->
+
+	<?php
+}
+add_action( 'wp_footer', 'google_analytics_tracking_code' );
