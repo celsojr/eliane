@@ -11,9 +11,12 @@ Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, c
 A WordPress theme based in the TwentyFifteen
 
 == Changelog ==
-= 1.5 =
+= 1.5.1 = Jun 16, 2017
+* Google Analytics Tracking Code added
+
+= 1.5 = Jun 14, 2017
 * Support for Offline(development) Fonts added
-+ Entry meta moved to top
+* Entry meta moved to top
 * Last edited date added on footer
 * Original footer removed
 * Edit link only for single
