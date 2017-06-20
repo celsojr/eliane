@@ -2518,6 +2518,10 @@ p > video {
 	font-style: italic;
 }
 
+.listing {
+	margin-top: -20px;
+}
+
 
 /**
  * 14.2 Galleries
