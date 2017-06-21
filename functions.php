@@ -533,3 +533,23 @@ function google_analytics_tracking_code() {
 	<?php
 }
 add_action( 'wp_footer', 'google_analytics_tracking_code' );
+
+/**
+* ParticlesJS background
+* http://vincentgarreau.com/particles.js/
+*
+* @since Eliane 1.5.2
+*/
+function particlesjs_background() {
+	?>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/particles.min.js"></script>
+	<script type="text/javascript">
+		;(function($) {
+			particlesJS.load('page', '<?php echo get_template_directory_uri(); ?>/js/particles.json', function() {
+				console.log('callback - particles.js config loaded');
+			});
+		}(jQuery));
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'particlesjs_background' );
