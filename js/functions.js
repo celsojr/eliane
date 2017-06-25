@@ -2,7 +2,7 @@
 /**
  * Theme functions file.
  *
- * Contains handlers for navigation and widget area.
+ * Contains handlers for navigation and widget area and some extra functions.
  */
 
 ( function( $ ) {
@@ -174,5 +174,19 @@
 			setTimeout( resizeAndScroll, 100 * i );
 		}
 	} );
+
+	//==================================//
+
+	/**
+	 * @summary Extra functions
+	 * @since Eliane 1.6
+	 */
+
+	// Image zoom
+	$(".page-content img,.entry-content img,.comment-content img").hover(function() {
+        $(this).addClass("img-zoom-transition");
+    }, function() {
+        $(this).removeClass("img-zoom-transition");
+    });
 
 } )( jQuery );

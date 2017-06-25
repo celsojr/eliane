@@ -538,7 +538,7 @@ add_action( 'wp_footer', 'google_analytics_tracking_code' );
 * ParticlesJS background
 * http://vincentgarreau.com/particles.js/
 *
-* @since Eliane 1.5.2
+* @since Eliane 1.6
 */
 function particlesjs_background() {
 	?>
