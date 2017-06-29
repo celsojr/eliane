@@ -2,7 +2,7 @@
 Contributors: Celso Jr
 Requires at least: WordPress 4.1
 Tested up to: WordPress 4.8-trunk
-Version: 1.5
+Version: 1.6
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -11,6 +11,14 @@ Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, c
 A WordPress theme based in the TwentyFifteen
 
 == Changelog ==
+= 1.6 = Jun 25, 2017
+* Image Zoom
+* Favicon with photo
+* ParticleJS background added
+* Footer message revised
+* Entries font color changed to dark gray
+* Some CSS styles revised
+
 = 1.5.1 = Jun 16, 2017
 * Google Analytics Tracking Code added
 

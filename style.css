@@ -11,7 +11,7 @@ Theme URI: https://wordpress.org/themes/eliane/
 Author: someone around there
 Author URI: https://celsojr.com/
 Description: Another theme
-Version: 1.5.1
+Version: 1.6
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -95,6 +95,17 @@ html {
 
 body {
 	background: #f1f1f1;
+}
+
+canvas {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	min-height: 100vh;
+	z-index: -1;
 }
 
 article,
@@ -255,7 +266,6 @@ h5,
 h6 {
 	clear: both;
 	font-family: 'Open Sans', sans-serif;
-	/*font-weight: 700;*/
 }
 
 p {
@@ -275,16 +285,16 @@ i {
 }
 
 blockquote {
-	border-left: 4px solid #707070;
-	border-left: 4px solid rgba(51, 51, 51, 0.7);
-	color: #707070;
-	color: rgba(51, 51, 51, 0.7);
-	font-size: 16px !important;
-	font-size: 1.8rem;
-	font-style: italic;
+	border-left: 4px solid #ddd;
+	border-left: 4px solid rgba(221, 221, 221, 1);
+    background: #FFF;
 	line-height: 1.6667;
-	margin-bottom: 1.6667em;
-	padding-left: 0.7778em;
+	margin: 1em 0;
+    padding: 10px 15px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.1);
+	font-style: italic;
+	font-size: 14px !important;
+	font-size: 1.4rem !important;
 }
 
 blockquote p {
@@ -300,7 +310,7 @@ blockquote small {
 	color: #333;
 	font-size: 15px;
 	font-size: 1.5rem;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	line-height: 1.6;
 }
 
@@ -484,23 +494,23 @@ del {
 
 ::-webkit-input-placeholder {
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 }
 
 :-moz-placeholder {
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 }
 
 ::-moz-placeholder {
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	opacity: 1; /* Since FF19 lowers the opacity of the placeholder by default */
 }
 
 :-ms-input-placeholder {
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 }
 
 
@@ -571,7 +581,7 @@ input[type="submit"] {
 	border: 0;
 	color: #fff;
 	cursor: pointer;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -639,7 +649,7 @@ textarea:focus {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
 	display: block;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -990,7 +1000,7 @@ a:focus {
 .post-navigation .meta-nav {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: 0.04em;
@@ -1001,7 +1011,7 @@ a:focus {
 }
 
 .post-navigation .post-title {
-	font-family: "Noto Serif", serif;
+	font-family: "Roboto Serif", serif;
 	font-size: 18px;
 	font-size: 1.8rem;
 	line-height: 1.3333;
@@ -1044,7 +1054,7 @@ a:focus {
 .pagination {
 	background-color: #fff;
 	border-top: 1px solid rgba(51, 51, 51, 0.1);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 }
 
 .pagination .nav-links {
@@ -1127,7 +1137,7 @@ a:focus {
 	color: rgba(51, 51, 51, 0.7);
 	font-size: 12px;
 	font-size: 1.2rem;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-weight: 700;
 	line-height: 1.5;
 	text-transform: uppercase;
@@ -1216,7 +1226,7 @@ a:focus {
 	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
 	color: #21759b;
 	display: block;
-	font: bold 14px/normal "Noto Sans", sans-serif;
+	font: bold 14px/normal "Roboto Sans", sans-serif;
 	left: -9999em;
 	outline: none;
 	padding: 15px 23px 14px;
@@ -1424,7 +1434,7 @@ img.aligncenter {
 
 .widget-title {
 	color: #333;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	margin: 0 0 1.6em;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
@@ -1448,7 +1458,7 @@ img.aligncenter {
 }
 
 .widget_calendar caption {
-	font-family: "Noto Serif", serif;
+	font-family: "Roboto Serif", serif;
 	font-weight: 700;
 	margin: 0 0 1.6em;
 	letter-spacing: 0.04em;
@@ -1567,7 +1577,7 @@ img.aligncenter {
 
 .widget_rss .rss-date,
 .widget_rss cite {
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	font-style: normal;
@@ -1681,13 +1691,15 @@ a.post-thumbnail:focus {
 
 .entry-content,
 .page-content,
-.entry-summary {
+.entry-summary,
+.comment-content {
 	padding: 0 7.6923% 7.6923%;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
     font-style: normal;
 	font-size: 16px;
 	font-size: 1.5rem;
+	color: #909090;
 }
 
 .entry-content > :last-child,
@@ -1802,7 +1814,7 @@ a.post-thumbnail:focus {
 .page-content a,
 .comment-content a,
 .pingback .comment-body > a {
-	border-bottom: 1px solid #333;
+	text-decoration: none;
 }
 
 .entry-content a:hover,
@@ -1815,7 +1827,8 @@ a.post-thumbnail:focus {
 .comment-content a:focus,
 .pingback .comment-body > a:hover,
 .pingback .comment-body > a:focus {
-	border-bottom: 0;
+	color: #333;
+	border-bottom: 1px solid #333;
 }
 
 .entry-content a img,
@@ -1866,7 +1879,7 @@ a.post-thumbnail:focus {
 .author-heading {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: 0.04em;
@@ -2035,7 +2048,7 @@ a.post-thumbnail:focus {
 
 .page-links {
 	clear: both;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	margin-bottom: 1.3333em;
 }
 
@@ -2093,7 +2106,7 @@ a.post-thumbnail:focus {
 .entry-caption {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	-webkit-hyphens: auto;
@@ -2170,7 +2183,6 @@ a.post-thumbnail:focus {
 
 .comments-title,
 .comment-reply-title {
-	font-family: "Noto Serif", serif;
 	font-size: 18px;
 	font-size: 1.8rem;
 	line-height: 1.3333;
@@ -2231,7 +2243,7 @@ a.post-thumbnail:focus {
 .pingback .edit-link {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.5;
@@ -2296,7 +2308,7 @@ a.post-thumbnail:focus {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
 	display: inline-block;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-weight: 700;
 	line-height: 1;
 	margin-top: 2em;
@@ -2318,7 +2330,7 @@ a.post-thumbnail:focus {
 .comment-form label {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -2341,7 +2353,7 @@ a.post-thumbnail:focus {
 .form-allowed-tags {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.5;
@@ -2357,7 +2369,9 @@ a.post-thumbnail:focus {
 	border-top: 1px solid rgba(51, 51, 51, 0.1);
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
+	font-size: 16px;
+	font-size: 1.5rem;
 	font-weight: 700;
 	padding-top: 1.6em;
 }
@@ -2444,6 +2458,23 @@ a.post-thumbnail:focus {
 	padding: 0;
 }
 
+ .img-zoom-transition {
+	 box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+    -webkit-transform: scale(1.4); 
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.page-content img,
+.entry-content img,
+.comment-content img {
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+}
+
 audio,
 canvas {
 	display: inline-block;
@@ -2511,10 +2542,12 @@ p > video {
 	color: rgba(51, 51, 51, 0.5);
 	font-size: 12px !important;
 	font-size: 1.2rem !important;
-	/*line-height: 1.5;
-	padding: 0.5em 0;*/
 	text-align: center;
 	font-style: italic;
+}
+
+.listing {
+	margin-top: -20px;
 }
 
 
@@ -2574,7 +2607,7 @@ p > video {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
 	display: block;
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.5;
@@ -2630,7 +2663,7 @@ p > video {
 .widecolumn .mu_register label {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Roboto Sans", sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -2783,10 +2816,6 @@ p > video {
 		margin-left: 1.3333em;
 	}
 
-	blockquote {
-		margin-left: -1em;
-	}
-
 	blockquote > blockquote {
 		margin-left: 0;
 	}
@@ -2852,7 +2881,7 @@ p > video {
 	.hentry,
 	.page-header,
 	.page-content {
-		box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+		box-shadow: 1px 1px 4px rgba(0,0,0,.1);
 		margin: 0 7.6923%;
 	}
 
@@ -2896,7 +2925,7 @@ p > video {
 
 	.site-footer {
 		border-top: 0;
-		box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+		box-shadow: 1px 1px 4px rgba(0,0,0,.1);
 		margin: 0 7.6923%;
 		padding: 3.84615% 7.6923%;
 	}
@@ -2933,7 +2962,7 @@ p > video {
 
 	.comments-area {
 		border-top: 0;
-		box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+		box-shadow: 1px 1px 4px rgba(0,0,0,.1);
 		margin: 7.6923% 7.6923% 0;
 	}
 
@@ -2993,7 +3022,6 @@ p > video {
 		font-size: 2rem;
 		line-height: 1.75;
 		margin-bottom: 1.75em;
-		margin-left: -1.05em;
 		padding-left: 0.85em;
 	}
 
@@ -3206,7 +3234,6 @@ p > video {
 		font-size: 1.7rem;
 		line-height: 1.6471;
 		margin-bottom: 1.6471em;
-		margin-left: -1.2353em;
 		padding-left: 1em;
 	}
 
@@ -3619,7 +3646,6 @@ p > video {
 		font-size: 2.2rem;
 		line-height: 1.8182;
 		margin-bottom: 1.8182em;
-		margin-left: -1.0909em;
 		padding-left: 0.9091em;
 	}
 
@@ -3810,7 +3836,6 @@ p > video {
 		font-size: 1.9rem;
 		line-height: 1.6842;
 		margin-bottom: 1.6842em;
-		margin-left: -1.2632em;
 		padding-left: 1.0526em;
 	}
 
@@ -4204,7 +4229,6 @@ p > video {
 		font-size: 1.8rem;
 		line-height: 1.6667;
 		margin-bottom: 1.6667em;
-		margin-left: -1.3333em;
 		padding-left: 1.1111em;
 	}
 
@@ -4448,7 +4472,6 @@ p > video {
 		font-size: 1.2rem;
 		line-height: 1.5;
 		margin-bottom: 1.5em;
-		margin-left: -1.5em;
 		padding-left: 1.1667em;
 	}
 
@@ -4871,7 +4894,6 @@ p > video {
 		font-size: 2rem;
 		line-height: 1.75;
 		margin-bottom: 1.75em;
-		margin-left: -1.05em;
 		padding-left: 0.85em;
 	}
 
@@ -5406,7 +5428,6 @@ p > video {
 		font-size: 2.2rem;
 		line-height: 1.8182;
 		margin-bottom: 1.8182em;
-		margin-left: -1.0909em;
 		padding-left: 0.9091em;
 	}
 
@@ -5507,8 +5528,8 @@ p > video {
 	.entry-caption,
 	.widecolumn label,
 	.widecolumn .mu_register label {
-		font-size: 16px;
-		font-size: 1.6rem;
+		font-size: 12px;
+		font-size: 1.2rem;
 	}
 
 	.pagination .nav-links {
