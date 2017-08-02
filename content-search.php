@@ -14,24 +14,30 @@
 	<?php twentyfifteen_post_thumbnail(); ?>
 
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+	<h4 class="entry-meta">
+		<?php twentyfifteen_entry_meta(); ?>
+		<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link"> / ', '</span>' ); ?>
+	</h4>
 
-	<?php if ( 'post' == get_post_type() ) : ?>
+	<div class="entry-content">
+		<?php
+			the_content( sprintf(
+				__( 'Continue reading %s', 'twentyfifteen' ),
+				the_title( '<span class="screen-reader-text">', '</span>', false )
+			) );
 
-		<footer class="entry-footer">
-			<?php twentyfifteen_entry_meta(); ?>
-			<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
-		</footer><!-- .entry-footer -->
-
-	<?php else : ?>
-
-		<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
-
-	<?php endif; ?>
+			wp_link_pages( array(
+				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text">, </span>',
+			) );
+		?>
+	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->

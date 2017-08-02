@@ -11,7 +11,7 @@ Theme URI: https://wordpress.org/themes/eliane/
 Author: someone around there
 Author URI: https://celsojr.com/
 Description: Another theme
-Version: 1.6
+Version: 1.6.1
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -544,8 +544,8 @@ input {
 input,
 textarea {
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow on iOS inputs */
-	border: 1px solid #eaeaea;
-	border: 1px solid rgba(51, 51, 51, 0.1);
+    border: 1px solid #eaeaea; 
+	border: 1px solid rgba(51, 51, 51, 0.1); 
 	color: #707070;
 	color: rgba(51, 51, 51, 0.7);
 }
@@ -603,6 +603,27 @@ input[type="submit"]:focus {
 }
 
 input[type="search"] {
+  background: url(magnifying-glass.svg) center left no-repeat;
+  background-position-x: 7px;
+  background-size: 18px;
+  padding: 0 0 0 32px !important;
+  font-size: 0;
+  width: auto;
+  height: 35px;
+  width: 35px;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear; 
+}
+
+input[type="search"]:hover {
+	border: 1px solid #c1c1c1;
+	border: 1px solid rgba(51, 51, 51, 0.3);
+}
+
+input[type="search"] {
 	-webkit-appearance: textfield;
 }
 
@@ -639,6 +660,11 @@ input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
 	outline: 0;
+}
+
+input[type="search"]:focus {
+	background-position-x: -20px;
+	padding: 0 0 0 5px !important;
 }
 
 .post-password-form {
