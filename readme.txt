@@ -2,7 +2,7 @@
 Contributors: Celso Jr
 Requires at least: WordPress 4.1
 Tested up to: WordPress 4.8-trunk
-Version: 1.6.1
+Version: 1.6.2
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -11,6 +11,9 @@ Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, c
 A WordPress theme based in the TwentyFifteen
 
 == Changelog ==
+= 1.6.2 = Sep, 1, 2017
+* Search result nothing found: Search box issue fixed
+
 = 1.6.1 = Ago 31, 2017
 * Search result template fixed
 * Magnifier added in the search box

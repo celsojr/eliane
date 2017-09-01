@@ -11,7 +11,7 @@ Theme URI: https://wordpress.org/themes/eliane/
 Author: someone around there
 Author URI: https://celsojr.com/
 Description: Another theme
-Version: 1.6.1
+Version: 1.6.2
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -605,9 +605,9 @@ input[type="submit"]:focus {
 input[type="search"] {
   background: url(magnifying-glass.svg) center left no-repeat;
   background-position-x: 7px;
-  background-size: 18px;
-  padding: 0 0 0 32px !important;
-  font-size: 0;
+  background-size: 15px;
+  padding: 0 0 0 28px !important;
+  font-size: 16px;
   width: auto;
   height: 35px;
   width: 35px;
