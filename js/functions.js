@@ -183,10 +183,10 @@
 	 */
 
 	// Image zoom
-	$(".page-content img,.entry-content img,.comment-content img").not(".none").hover(function() {
-	$(this).addClass("img-zoom-transition");
-    }, function() {
-	$(this).removeClass("img-zoom-transition");
-    });
+	$(".page-content img,.entry-content img,.comment-content img").not(".none").hover(function () {
+		$(this).addClass("img-zoom-transition");
+	}, function () {
+		$(this).removeClass("img-zoom-transition");
+	});
 
 } )( jQuery );

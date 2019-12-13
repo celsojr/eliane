@@ -433,7 +433,7 @@ function social_sharing_buttons( $content ) {
 		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
 		$whatsapp_url = 'whatsapp://send?text=' . $post_title . ' ' . $post_url;
 		$email_url = 'mailto:?subject=' . $post_title . '&amp;body=' . $post_url . '';
-		// $linkedin_url = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $post_url . '&amp;title=' . $post_title . $summary . '&amp;source=celsojr.com';
+		$linkedin_url = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $post_url . '&amp;title=' . $post_title . $summary . '&amp;source=celsojr.com';
 		// $pinterest_url = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;media='.$post_thumbnail[0].'&amp;description='.$post_title;
  
 		$content .= '<!-- Social sharing -->';
@@ -442,7 +442,7 @@ function social_sharing_buttons( $content ) {
 		$content .= '<a class="genericon genericon-facebook-alt share-button" href="' . $facebook_url . '" title="Share on Facebook"></a>';
 		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="' . $whatsapp_url . '"></a>';
 		$content .= '<a class="genericon genericon-mail share-button" href="' . $email_url . '" title="Send by E-mail"></a>';
-		// $content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
 		// $content .= '<a class="genericon genericon-pinterest" href="' . $pinterest_url . '" data-pin-custom="true" target="_blank">Pin It</a>';
 		$content .= '</div>';
 		
