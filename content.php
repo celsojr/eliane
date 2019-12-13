@@ -35,6 +35,16 @@
 	</h4>
 
 	<div class="entry-content">
+		<?php if ( is_single() && date('Y-m-d', strtotime('-1 year')) > get_the_modified_date('Y-m-d') ) : ?>
+			<blockquote>
+				<p>
+					It's been over a year since this article was last updated.
+					The information below might be outdated.
+					Please contact the author for more.
+				</p>
+			</blockquote>
+		<?php endif; ?>
+
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(

@@ -11,6 +11,13 @@ Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, c
 A WordPress theme based in the TwentyFifteen
 
 == Changelog ==
+= 1.6.3 = Dec, 13, 2019
+* Removing Google Plus share button
+* CSS class for images that cannot be zoomed
+* Support SSL secure connections via HTTPS
+* Bringing back Linkedin share button
+* Information note about outdated article
+
 = 1.6.2 = Sep, 1, 2017
 * Search result nothing found: Search box issue fixed
 
