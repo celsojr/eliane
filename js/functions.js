@@ -175,10 +175,12 @@
 		}
 	} );
 
-	//==================================//
+	/******************************
+	   ELIANE EXCLUSIVE FUNCTIONS
+	*******************************/
 
 	/**
-	 * @summary Extra functions
+	 * @summary Image zoom
 	 * @since Eliane 1.6
 	 */
 
@@ -189,4 +191,31 @@
 		$(this).removeClass("img-zoom-transition");
 	});
 
+	/**
+	 * @summary Scroll back to top
+	 * @since Eliane 1.6.4
+	 */
+	
+	var scrollTop = $(".scroll-up");
+	
+	$(window).scroll(function() {
+		const mq = window.matchMedia("(min-width: 700px)");
+
+		var topPos = $(this).scrollTop();
+	
+		if (topPos > 500 && mq.matches) {
+			$(scrollTop).fadeIn(300).removeClass('hide');
+		} else {
+			$(scrollTop).addClass('hide').fadeOut(300);
+		}
+	});
+
+	scrollTop.on('click touchstart', function(e) {
+		e.preventDefault();
+		$('html, body').animate({
+			scrollTop: 0
+		}, 900);
+		return false;
+	});
+	
 } )( jQuery );

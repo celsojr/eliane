@@ -11,7 +11,7 @@ Theme URI: https://wordpress.org/themes/eliane/
 Author: someone around there
 Author URI: https://celsojr.com/
 Description: Another theme
-Version: 1.6.2
+Version: 1.6.4
 License: MIT
 License URI: https://choosealicense.com/licenses/mit/
 Tags: blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -158,12 +158,8 @@ q {
 	quotes: none;
 }
 
-a:focus {
-	outline: 2px solid #c1c1c1;
-	outline: 2px solid rgba(51, 51, 51, 0.3);
-}
-
 a:hover,
+a:focus,
 a:active {
 	outline: 0;
 }
@@ -171,7 +167,6 @@ a:active {
 a img {
 	border: 0;
 }
-
 
 /**
  * 2.0 - Genericons
@@ -285,9 +280,10 @@ i {
 }
 
 blockquote {
-	border-left: 4px solid #ddd;
-	border-left: 4px solid rgba(221, 221, 221, 1);
-    background: #FFF;
+	border-left: 4px solid #ffe6a0;
+	border-left: 4px solid rgb(255, 230, 160);
+    background: #fffff0;
+    background: rgb(255, 255, 240);
 	line-height: 1.6667;
 	margin: 1em 0;
     padding: 10px 15px;
@@ -713,13 +709,233 @@ input[type="radio"] {
 
 a {
 	color: #333;
+	color: rgb(51, 51, 51);
 	text-decoration: none;
 }
 
 a:hover,
 a:focus {
 	color: #707070;
-	color: rgba(51, 51, 51, 0.7);
+	color: rgb(112, 112, 112);
+}
+
+/**
+* Animated arrows link
+*/
+
+.the-arrow {
+	width: 1px;
+	transition: all 0.2s;
+}
+
+.the-arrow.-left {
+	position: absolute;
+	top: 60%;
+	left: 0;
+}
+
+.the-arrow.-left > .shaft {
+	width: 0;
+	background-color: #4c4c4c;
+}
+
+.the-arrow.-left > .shaft:before, .the-arrow.-left > .shaft:after {
+	width: 0;
+	background-color: #4c4c4c;
+}
+
+.the-arrow.-left > .shaft:before {
+	-webkit-transform: rotate(0);
+			transform: rotate(0);
+}
+
+.the-arrow.-left > .shaft:after {
+	-webkit-transform: rotate(0);
+			transform: rotate(0);
+}
+
+.the-arrow.-right {
+	top: 3px;
+}
+
+.the-arrow.-right > .shaft {
+	width: 1px;
+	transition-delay: 0.2s;
+}
+
+.the-arrow.-right > .shaft:before, .the-arrow.-right > .shaft:after {
+	width: 8px;
+	transition-delay: 0.3s;
+	transition: all 0.5s;
+}
+
+.the-arrow.-right > .shaft:before {
+	-webkit-transform: rotate(40deg);
+			transform: rotate(40deg);
+}
+
+.the-arrow.-right > .shaft:after {
+	-webkit-transform: rotate(-40deg);
+			transform: rotate(-40deg);
+}
+
+.the-arrow > .shaft {
+	background-color: #4c4c4c;
+	display: block;
+	height: 1px;
+	position: relative;
+	margin-bottom: 5px;
+	transition: all 0.2s;
+	transition-delay: 0;
+	will-change: transform;
+}
+
+.the-arrow > .shaft:before, .the-arrow > .shaft:after {
+	background-color: #4c4c4c;
+	content: '';
+	display: block;
+	height: 1px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transition: all 0.2s;
+	transition-delay: 0;
+}
+
+.the-arrow > .shaft:before {
+	-webkit-transform-origin: top right;
+			transform-origin: top right;
+}
+
+.the-arrow > .shaft:after {
+	-webkit-transform-origin: bottom right;
+			transform-origin: bottom right;
+}
+  
+.animated-arrow {
+	display: inline-block;
+	color: #4c4c4c;
+	font-size: 1.25em;
+	text-decoration: none;
+}
+
+.animated-arrow.scroll-to-top {
+	position: relative;
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft {
+	width: 64px;
+	transition-delay: 0.1s;
+	background-color: #808080;
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:before, .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+	width: 8px;
+	transition-delay: 0.1s;
+	background-color: #808080;
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:before {
+	-webkit-transform: rotate(40deg);
+			transform: rotate(40deg);
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:after {
+	-webkit-transform: rotate(-40deg);
+			transform: rotate(-40deg);
+}
+
+.animated-arrow:hover > .main {
+	-webkit-transform: translateX(17px);
+			transform: translateX(17px);
+	-webkit-transform: translateX(80px);
+			transform: translateX(80px);
+}
+
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft {
+	width: 0;
+	-webkit-transform: translateX(200%);
+			transform: translateX(200%);
+	transition-delay: 0;
+}
+
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:before, .animated-arrow:hover > .main > .the-arrow.-right > .shaft:after {
+	width: 0;
+	transition-delay: 0;
+	transition: all 0.1s;
+}
+
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:before {
+	-webkit-transform: rotate(0);
+			transform: rotate(0);
+}
+
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:after {
+	-webkit-transform: rotate(0);
+			transform: rotate(0);
+}
+
+.animated-arrow > .main {
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.animated-arrow > .main > .text {
+	margin: 0 16px 0 0;
+	line-height: 1;
+	font-family: 'Roboto';
+	font-size: 16px;
+}
+
+.animated-arrow > .main > .the-arrow {
+	position: relative;
+}
+
+/**
+* Scroll back to top link
+*/
+
+.scroll-up {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.5px;
+    margin-right: -16px;
+    position: fixed;
+    right: 50px;
+    top: 90vh;
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    z-index: 1000
+}
+
+.scroll-up.hide {
+    opacity: 0;
+    -webkit-transform: rotate(-90deg) translate(100%, 100px);
+    -moz-transform: rotate(-90deg) translate(100%, 100px);
+    -ms-transform: rotate(-90deg) translate(100%, 100px);
+    -o-transform: rotate(-90deg) translate(100%, 100px);
+    transform: rotate(-90deg) translate(100%, 100px)
+}
+
+.scroll-up {
+    -webkit-transform: rotate(-90deg) translate(100%, 0);
+    -moz-transform: rotate(-90deg) translate(100%, 0);
+    -ms-transform: rotate(-90deg) translate(100%, 0);
+    -o-transform: rotate(-90deg) translate(100%, 0);
+    transform: rotate(-90deg) translate(100%, 0)
+}
+
+.scroll-up {
+    -webkit-transition: .6s cubic-bezier(0.28, .12, .22, 1);
+    -moz-transition: .6s cubic-bezier(0.28, .12, .22, 1);
+    -ms-transition: .6s cubic-bezier(0.28, .12, .22, 1);
+    -o-transition: .6s cubic-bezier(0.28, .12, .22, 1);
+    transition: .6s cubic-bezier(0.28, .12, .22, 1)
 }
 
 
@@ -1853,8 +2069,9 @@ a.post-thumbnail:focus {
 .comment-content a:focus,
 .pingback .comment-body > a:hover,
 .pingback .comment-body > a:focus {
-	color: #333;
-	border-bottom: 1px solid #333;
+	color: #909090;
+	color: rgb(144, 144, 144);
+	transition: all 0.5s;
 }
 
 .entry-content a img,
@@ -2822,7 +3039,6 @@ p > video {
 		height: 40px;
 		margin: 0 4px;
 	}
-
 }
 
 /**
@@ -4335,14 +4551,6 @@ p > video {
 		width: 24px;
 	}
 
-	.social-navigation {
-		/*margin: 0 20% 20%;*/
-	}
-
-	/*.social-navigation ul {
-		margin-bottom: -1.6em;
-	}*/
-
 	.social-navigation li {
 		width: 10%;
 		margin: 9px;
@@ -4986,10 +5194,6 @@ p > video {
 		line-height: 28px;
 		width: 28px;
 	}
-
-	/*.social-navigation ul {
-		margin-bottom: -1.4706em;
-	}*/
 
 	.social-navigation li {
 		width: 10%;
@@ -5959,6 +6163,11 @@ p > video {
 	body:before {
 		width: -webkit-calc(50% - 289px);
 		width: calc(50% - 289px);
+	}
+
+	.scroll-up {
+		right: -webkit-calc(50% - 640px);
+		right: calc(50% - 640px);
 	}
 }
 
