@@ -12,6 +12,24 @@
 
 	</div><!-- .site-content -->
 
+	<div>
+		<a href="#" class="animated-arrow scroll-up hide" style="display: none;">
+			<span class="the-arrow -left">
+				<span class="shaft">
+				</span>
+			</span>
+			<span class="main">
+				<span class="text">
+					scroll back to top
+				</span>
+				<span class="the-arrow -right">
+					<span class="shaft">
+					</span>
+				</span>
+			</span>
+		</a>
+	</div>
+
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<?php

@@ -439,10 +439,10 @@ function social_sharing_buttons( $content ) {
 		$content .= '<!-- Social sharing -->';
 		$content .= '<div class="postshare">';
 		$content .= '<a class="genericon genericon-twitter share-button" href="' . $twitter_url . '" title="Share on Twitter"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
 		$content .= '<a class="genericon genericon-facebook-alt share-button" href="' . $facebook_url . '" title="Share on Facebook"></a>';
 		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="' . $whatsapp_url . '"></a>';
 		$content .= '<a class="genericon genericon-mail share-button" href="' . $email_url . '" title="Send by E-mail"></a>';
-		$content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
 		// $content .= '<a class="genericon genericon-pinterest" href="' . $pinterest_url . '" data-pin-custom="true" target="_blank">Pin It</a>';
 		$content .= '</div>';
 		
@@ -551,3 +551,26 @@ function particlesjs_background() {
 	<?php
 }
 add_action( 'wp_footer', 'particlesjs_background' );
+
+/**
+* Animated Continue Reading link
+*
+* @since Eliane 1.6.4
+*/
+function modify_read_more_link() {
+	$content = '<a class="animated-arrow scroll-to-top" href="' . get_permalink() . '">';
+	$content .= '<span class="the-arrow -left">';
+	$content .= '<span class="shaft"></span>';
+	$content .= '</span>';
+	$content .= '<span class="main">';
+	$content .= '<span class="text">';
+	$content .= 'Continue reading';
+	$content .= '</span>';
+	$content .= '<span class="the-arrow -right">';
+	$content .= '<span class="shaft"></span>';
+	$content .= '</span>';
+	$content .= '</span>';
+	$content .= '</a>';
+	return $content;
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
