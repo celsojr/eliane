@@ -217,5 +217,12 @@
 		}, 900);
 		return false;
 	});
+
+	/**
+	 * @summary Tooltipster
+	 * @since Eliane 1.6.4
+	 */
+
+	$('.tooltip').tooltipster();
 	
 } )( jQuery );

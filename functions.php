@@ -256,6 +256,9 @@ function twentyfifteen_scripts() {
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.2' );
 
+	// Tooltipster - https://github.com/iamceege/tooltipster
+	wp_enqueue_style( 'Tooltipster', get_template_directory_uri() . '/css/tooltipster.bundle.css', array(), '1.0' );
+
 	// Load our main stylesheet.
 	wp_enqueue_style( 'twentyfifteen-style', get_stylesheet_uri() );
 
@@ -280,6 +283,8 @@ function twentyfifteen_scripts() {
 	if ( is_singular() ) {
 		wp_enqueue_script( 'eliane-sharing-scrips', get_template_directory_uri() . '/js/functions-sharing.js', array( 'jquery' ), '1.0', true );
 	}
+	
+	wp_enqueue_script( 'eliane-scrips', get_template_directory_uri() . '/js/tooltipster.bundle.min.js', array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_script( 'twentyfifteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
 	wp_localize_script( 'twentyfifteen-script', 'screenReaderText', array(
@@ -438,11 +443,11 @@ function social_sharing_buttons( $content ) {
  
 		$content .= '<!-- Social sharing -->';
 		$content .= '<div class="postshare">';
-		$content .= '<a class="genericon genericon-twitter share-button" href="' . $twitter_url . '" title="Share on Twitter"></a>';
-		$content .= '<a class="genericon genericon-linkedin share-button" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
-		$content .= '<a class="genericon genericon-facebook-alt share-button" href="' . $facebook_url . '" title="Share on Facebook"></a>';
-		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp" href="' . $whatsapp_url . '"></a>';
-		$content .= '<a class="genericon genericon-mail share-button" href="' . $email_url . '" title="Send by E-mail"></a>';
+		$content .= '<a class="genericon genericon-twitter share-button tooltip" href="' . $twitter_url . '" title="Share on Twitter"></a>';
+		$content .= '<a class="genericon genericon-linkedin share-button tooltip" href="' . $linkedin_url . '" title="Share on Linkedin"></a>';
+		$content .= '<a class="genericon genericon-facebook-alt share-button tooltip" href="' . $facebook_url . '" title="Share on Facebook"></a>';
+		$content .= '<a class="genericon genericon-phone share-button postshare-whatsapp tooltip" href="' . $whatsapp_url . '"></a>';
+		$content .= '<a class="genericon genericon-mail share-button tooltip" href="' . $email_url . '" title="Send by E-mail"></a>';
 		// $content .= '<a class="genericon genericon-pinterest" href="' . $pinterest_url . '" data-pin-custom="true" target="_blank">Pin It</a>';
 		$content .= '</div>';
 		
