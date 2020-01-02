@@ -258,6 +258,9 @@ function twentyfifteen_scripts() {
 
 	// Tooltipster - https://github.com/iamceege/tooltipster
 	wp_enqueue_style( 'Tooltipster', get_template_directory_uri() . '/css/tooltipster.bundle.css', array(), '1.0' );
+	
+	// Simple line icons - https://github.com/elartix/simple-line-icons
+	wp_enqueue_style( 'Simple-line-icons', get_template_directory_uri() . '/css/simple-line-icons.css', array(), '1.0' );
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'twentyfifteen-style', get_stylesheet_uri() );
