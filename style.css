@@ -1922,13 +1922,18 @@ a.post-thumbnail:focus {
 .entry-meta, .entry-modified-date {
 	font-size: 12px;
 	font-size: 1.167rem;
-	color: #ddd;
 	text-align: center;
 	margin-bottom: 2.9474em;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
     font-style: normal;
 	text-transform: uppercase;
+}
+
+.entry-meta .separator:after {
+	content: '/';
+	color: #ddd;
+	padding: 2px;
 }
 
 .entry-content,

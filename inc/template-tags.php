@@ -51,7 +51,7 @@ function twentyfifteen_entry_meta() {
 
 	$format = get_post_format();
 	if ( current_theme_supports( 'post-formats', $format ) ) {
-		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span> / ',
+		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span> <span class="separator"></span> ',
 			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'twentyfifteen' ) ),
 			esc_url( get_post_format_link( $format ) ),
 			get_post_format_string( $format )
@@ -72,7 +72,7 @@ function twentyfifteen_entry_meta() {
 			get_the_modified_date()
 		);
 
-		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
+		printf( '<span aria-hidden="true" class="icon-calendar"></span> <span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
 			_x( 'Posted on', 'Used before publish date.', 'twentyfifteen' ),
 			esc_url( get_permalink() ),
 			$time_string
@@ -90,7 +90,7 @@ function twentyfifteen_entry_meta() {
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
 		if ( $categories_list && twentyfifteen_categorized_blog() ) {
-			printf( ' / <span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( ' <span class="separator"></span> <span aria-hidden="true" class="icon-drawer"></span> <span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 				_x( 'Categories', 'Used before category names.', 'twentyfifteen' ),
 				$categories_list
 			);
@@ -98,7 +98,7 @@ function twentyfifteen_entry_meta() {
 
 		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
 		if ( $tags_list ) {
-			printf( ' / <span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( ' <span class="separator"></span> <span aria-hidden="true" class="icon-tag"></span> <span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 				_x( 'Tags', 'Used before tag names.', 'twentyfifteen' ),
 				$tags_list
 			);
@@ -118,7 +118,7 @@ function twentyfifteen_entry_meta() {
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo ' / <span class="comments-link">';
+		echo ' <span class="separator"></span> <span class="comments-link">';
 		/* translators: %s: post title */
 		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
 		echo '</span>';
