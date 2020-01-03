@@ -90,7 +90,7 @@ function twentyfifteen_entry_meta() {
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
 		if ( $categories_list && twentyfifteen_categorized_blog() ) {
-			printf( ' <span class="separator"></span> <span aria-hidden="true" class="icon-drawer"></span> <span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( ' <span class="separator"></span> <span aria-hidden="true" class="icon-folder"></span> <span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 				_x( 'Categories', 'Used before category names.', 'twentyfifteen' ),
 				$categories_list
 			);
