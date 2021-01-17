@@ -62,26 +62,11 @@
 			) );
 		?>
 
-		<?php next_post_link( '<strong>%link</strong>' ); ?>
-
 		<?php if ( is_single() ) : ?>
 			<div class="entry-modified-date">
 				<?php echo "Last edited on " . get_the_modified_date( 'M, d, Y \a\\t g:i a' ); ?>
 			</div>
 		<?php endif; ?>
 	</div><!-- .entry-content -->
-
+	
 </article><!-- #post-## -->
-
-<style>
-	.foo {
-		display: block;
-		border: 1px solid red;
-		margin: 8.3333% 8.3333% 0;
-	}
-</style>
-
-<div class="foo">
-	Foo
-</div>
-
