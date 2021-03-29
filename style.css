@@ -339,6 +339,16 @@ pre {
 	hyphens: none;
 }
 
+/* The inline code sintax-highlighter */
+p code {
+	color: rgb(200, 100, 100);
+    background-color: rgb(255, 240, 240);
+	display: inline-block;
+	padding: 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 pre {
 	background-color: transparent;
 	background-color: rgba(0, 0, 0, 0.01);
@@ -2110,6 +2120,10 @@ a.post-thumbnail:focus {
 	list-style: disc;
 }
 
+.entry-content p {
+	text-align: justify;
+}
+
 .author-info {
 	border-top: 1px solid #eaeaea;
 	border-top: 1px solid rgba(51, 51, 51, 0.1);
@@ -2785,12 +2799,12 @@ p > video {
 	margin: 0;
 }
 
-.wp-caption-text {
+figcaption, .wp-caption-text {
 	color: #707070;
 	color: rgba(51, 51, 51, 0.5);
 	font-size: 12px !important;
 	font-size: 1.2rem !important;
-	text-align: center;
+	text-align: center !important;
 	font-style: italic;
 }
 
@@ -3228,6 +3242,11 @@ p > video {
 	.widecolumn {
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
 		margin: 7.6923%;
+	}
+
+	pre[class*="language-"] {
+		min-width: calc(100% + 11.4% + 11.4%);
+    	margin-left: -11.5% !important;
 	}
 }
 
@@ -5093,6 +5112,11 @@ p > video {
 	.widecolumn .mu_register #user_name {
 		margin: 0 0 0.375em;
 	}
+
+	pre[class*="language-"] {
+		min-width: calc(100% + 12.5% + 12.5%);
+		margin-left: -12.5% !important;
+	}
 }
 
 
@@ -6176,6 +6200,15 @@ p > video {
 	}
 }
 
+/**
+ * 17.8 Rotated devices 500px
+ */
+
+ @media screen and (max-height: 500px) {
+	pre[class*="language-"] {
+		max-height: 200px;
+	}
+ }
 
 /**
  * 18.0 Print
