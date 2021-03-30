@@ -617,6 +617,7 @@ input[type="search"] {
   width: auto;
   height: 35px;
   width: 35px;
+  font-family: "Roboto Sans", sans-serif;
   -webkit-transition: 0.3s linear;
   -moz-transition: 0.3s linear;
   -ms-transition: 0.3s linear;
